@@ -1,0 +1,18 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Facebook Ultimate Scraper Output",
+    "properties": {
+        "results": {
+            "type": "string",
+            "title": "Dataset Records",
+            "description": "Scraped Facebook records (Pages & B2B Leads, Groups, Posts, Marketplace, Reels, Events, Reviews, Photos, and Numeric IDs)",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "overview": {
+            "type": "string",
+            "title": "Executive Summary Payload",
+            "description": "High-level summary report and execution metrics stored in Key-Value store",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+        }
+    }
+}
