@@ -1,0 +1,20 @@
+{
+    "actorSpecification": 1,
+    "name": "facebook-ultimate-scraper",
+    "title": "Facebook Ultimate Scraper (Pages, Groups, Marketplace, Ads, Reels & Leads)",
+    "description": "Comprehensive all-in-one Facebook scraper. Extracts Pages & B2B Leads, Groups, Posts, Comments & Replies, Reels & Videos, Meta Ads Library, Marketplace listings, Events, Reviews, Photos, and URL-to-ID conversion.",
+    "version": "1.0.0",
+    "meta": {
+        "templateId": "js-crawlee-playwright"
+    },
+    "dockerfile": "./Dockerfile",
+    "categories": [
+        "LEAD_GENERATION",
+        "SOCIAL_MEDIA",
+        "MARKETING",
+        "E-COMMERCE"
+    ],
+    "environmentVariables": {
+        "APIFY_DISABLE_BROWSER_SANDBOX": "1"
+    }
+}
