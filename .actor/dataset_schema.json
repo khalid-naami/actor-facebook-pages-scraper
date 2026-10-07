@@ -1,0 +1,65 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "pageName": {
+            "type": "string",
+            "description": "Official title or name of the Facebook page"
+        },
+        "pageUrl": {
+            "type": "string",
+            "description": "Canonical URL of the Facebook page"
+        },
+        "verified": {
+            "type": "boolean",
+            "description": "Whether the page has a verified blue check badge"
+        },
+        "category": {
+            "type": "string",
+            "description": "Category or industry of the business/page"
+        },
+        "followersCount": {
+            "type": "integer",
+            "description": "Total followers count"
+        },
+        "likesCount": {
+            "type": "integer",
+            "description": "Total likes count"
+        },
+        "bio": {
+            "type": "string",
+            "description": "Page intro or biography snippet"
+        },
+        "email": {
+            "type": "string",
+            "description": "Business contact email"
+        },
+        "phone": {
+            "type": "string",
+            "description": "Business contact phone number"
+        },
+        "website": {
+            "type": "string",
+            "description": "Official external website link"
+        },
+        "address": {
+            "type": "string",
+            "description": "Physical business address"
+        },
+        "avatarUrl": {
+            "type": "string",
+            "description": "Profile picture image URL"
+        },
+        "coverPhotoUrl": {
+            "type": "string",
+            "description": "Cover banner image URL"
+        },
+        "posts": {
+            "type": "array",
+            "description": "List of recent timeline posts with engagement metrics"
+        },
+        "scrapedAt": {
+            "type": "string",
+            "description": "Timestamp of when the page was scraped"
+        }
+    }
+}
