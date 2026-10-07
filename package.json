@@ -1,0 +1,29 @@
+{
+  "name": "actor-facebook-pages-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Professional Facebook Pages & B2B Leads Scraper using Crawlee and Playwright. Extracts page bio, followers, contact info (email, phone, website), address, and posts with engagement metrics.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node src/main.js"
+  },
+  "keywords": [
+    "apify",
+    "actor",
+    "facebook",
+    "facebook-scraper",
+    "leads",
+    "facebook-pages",
+    "b2b",
+    "crawlee",
+    "playwright"
+  ],
+  "author": "Khalil",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "apify": "^3.2.6",
+    "crawlee": "^3.12.2",
+    "playwright": "^1.49.1"
+  }
+}
