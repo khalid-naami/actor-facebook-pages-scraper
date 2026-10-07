@@ -1,0 +1,85 @@
+{
+    "title": "Facebook Ultimate All-in-One Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "scrapeMode": {
+            "title": "Scraping Mode",
+            "type": "string",
+            "description": "Select the Facebook data module to execute, or choose AUTO_DETECT to automatically identify the URL type.",
+            "default": "AUTO_DETECT",
+            "editor": "select",
+            "enum": [
+                "AUTO_DETECT",
+                "PAGES",
+                "GROUPS",
+                "POSTS",
+                "COMMENTS",
+                "REELS_VIDEOS",
+                "ADS_LIBRARY",
+                "MARKETPLACE",
+                "EVENTS",
+                "REVIEWS",
+                "PHOTOS_ALBUMS",
+                "URL_ID_CONVERTER"
+            ]
+        },
+        "startUrls": {
+            "title": "Target URLs",
+            "type": "array",
+            "description": "List of Facebook URLs (Pages, Groups, Marketplace, Reels, Events, or Posts).",
+            "editor": "requestListSources",
+            "prefill": [
+                { "url": "https://www.facebook.com/Nike" },
+                { "url": "https://www.facebook.com/marketplace/category/electronics" }
+            ]
+        },
+        "maxItems": {
+            "title": "Max Items / Posts / Listings per URL",
+            "type": "integer",
+            "description": "Maximum number of items (posts, group discussions, marketplace products, reels, or photos) to collect.",
+            "default": 15,
+            "minimum": 1,
+            "maximum": 200
+        },
+        "maxComments": {
+            "title": "Max Comments per Post",
+            "type": "integer",
+            "description": "Maximum number of comments to extract when scraping posts or comments mode.",
+            "default": 10,
+            "minimum": 0,
+            "maximum": 100
+        },
+        "marketplaceCity": {
+            "title": "Marketplace Location / City (Optional)",
+            "type": "string",
+            "description": "City filter for Marketplace searches (e.g. Paris, New York, Casablanca, London).",
+            "default": "",
+            "editor": "textfield"
+        },
+        "adsCountry": {
+            "title": "Ads Library Target Country",
+            "type": "string",
+            "description": "Country code for Facebook Ads Library scraping (e.g. US, FR, MA, GB, ALL).",
+            "default": "ALL",
+            "editor": "textfield"
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Apify Proxy settings. Residential proxies are recommended for Facebook to prevent blocks.",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": ["RESIDENTIAL"]
+            }
+        },
+        "customCookies": {
+            "title": "Facebook Session Cookies (Optional)",
+            "type": "string",
+            "description": "Optional Facebook cookies (JSON array or 'c_user=...; xs=...' format) to scrape in logged-in state or access private groups.",
+            "editor": "textarea"
+        }
+    },
+    "required": ["startUrls"]
+}
