@@ -125,6 +125,16 @@ try {
             // Dismiss floating login popups
             await dismissLoginOverlay(page);
 
+            // Auto-normalize Marketplace URLs lacking a city location
+            if (activeMode === 'MARKETPLACE' && url.includes('/marketplace/category/')) {
+                const targetCity = (marketplaceCity || 'paris').toLowerCase().replace(/\s+/g, '');
+                const cityMarketplaceUrl = url.replace('/marketplace/category/', `/marketplace/${targetCity}/`);
+                log.info(`📍 Facebook Marketplace requires a city. Redirecting to: ${cityMarketplaceUrl}`);
+                await page.goto(cityMarketplaceUrl, { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => {});
+                await page.waitForTimeout(2000);
+                await dismissLoginOverlay(page);
+            }
+
             // Perform incremental scrolling if extracting lists/posts
             if (['POSTS', 'GROUPS', 'MARKETPLACE', 'REELS_VIDEOS', 'PHOTOS_ALBUMS', 'ADS_LIBRARY'].includes(activeMode)) {
                 log.info(`📜 Scrolling page to load more ${activeMode.toLowerCase()} items...`);
@@ -134,6 +144,7 @@ try {
                     await dismissLoginOverlay(page);
                 }
             }
+
 
             let resultRecord = null;
 
