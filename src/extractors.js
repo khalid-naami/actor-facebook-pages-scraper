@@ -338,12 +338,21 @@ export async function extractAdsLibrary(page, url, maxItems = 20) {
 // ==================== 7. MARKETPLACE SCRAPER ====================
 export async function extractMarketplaceListings(page, url, maxItems = 25) {
     return await page.evaluate(({ canonicalUrl, max }) => {
-        const itemLinks = Array.from(document.querySelectorAll('a[href*="/marketplace/item/"]')).slice(0, max);
+        const fullText = document.body.innerText || '';
+        const isErrorPage = fullText.includes('Sorry, something went wrong') || fullText.includes('Ce contenu n’est pas disponible') || fullText.includes('Page Not Found');
+
+        // Match marketplace item links
+        let itemLinks = Array.from(document.querySelectorAll('a[href*="/marketplace/item/"]'));
+        if (itemLinks.length === 0) {
+            // Alternative selector for marketplace cards
+            itemLinks = Array.from(document.querySelectorAll('div[role="main"] a[role="link"]')).filter(a => a.href && (a.href.includes('/marketplace/') || a.querySelector('img')));
+        }
+        itemLinks = itemLinks.slice(0, max);
+
         const items = itemLinks.map((link, idx) => {
             const href = link.getAttribute('href') || '';
             const textLines = (link.innerText || '').split('\n').map(l => l.trim()).filter(Boolean);
             
-            // In Marketplace: line 0 is usually price (e.g. $150 or €90), line 1 is title, line 2 is city/location
             const price = textLines[0] || 'N/A';
             const title = textLines[1] || textLines[0] || 'Marketplace Item';
             const location = textLines[2] || '';
@@ -362,11 +371,14 @@ export async function extractMarketplaceListings(page, url, maxItems = 25) {
         return {
             type: 'MARKETPLACE',
             sourceUrl: canonicalUrl,
+            status: isErrorPage && items.length === 0 ? 'NEEDS_CITY_LOCATION' : 'SUCCESS',
+            note: isErrorPage && items.length === 0 ? 'Facebook Marketplace requires a city slug in the URL (e.g. facebook.com/marketplace/paris/electronics) or logged-in cookies.' : null,
             totalItems: items.length,
             items
         };
     }, { canonicalUrl: url, max: maxItems });
 }
+
 
 // ==================== 8. EVENTS SCRAPER ====================
 export async function extractEvents(page, url, maxItems = 10) {
