@@ -31,7 +31,7 @@
             "editor": "requestListSources",
             "prefill": [
                 { "url": "https://www.facebook.com/Nike" },
-                { "url": "https://www.facebook.com/marketplace/category/electronics" }
+                { "url": "https://www.facebook.com/marketplace/paris/electronics" }
             ]
         },
         "maxItems": {
