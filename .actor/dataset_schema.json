@@ -1,65 +1,72 @@
 {
     "actorSpecification": 1,
     "fields": {
-        "pageName": {
-            "type": "string",
-            "description": "Official title or name of the Facebook page"
-        },
-        "pageUrl": {
-            "type": "string",
-            "description": "Canonical URL of the Facebook page"
-        },
-        "verified": {
-            "type": "boolean",
-            "description": "Whether the page has a verified blue check badge"
-        },
-        "category": {
-            "type": "string",
-            "description": "Category or industry of the business/page"
-        },
-        "followersCount": {
-            "type": "integer",
-            "description": "Total followers count"
-        },
-        "likesCount": {
-            "type": "integer",
-            "description": "Total likes count"
-        },
-        "bio": {
-            "type": "string",
-            "description": "Page intro or biography snippet"
-        },
-        "email": {
-            "type": "string",
-            "description": "Business contact email"
-        },
-        "phone": {
-            "type": "string",
-            "description": "Business contact phone number"
-        },
-        "website": {
-            "type": "string",
-            "description": "Official external website link"
-        },
-        "address": {
-            "type": "string",
-            "description": "Physical business address"
-        },
-        "avatarUrl": {
-            "type": "string",
-            "description": "Profile picture image URL"
-        },
-        "coverPhotoUrl": {
-            "type": "string",
-            "description": "Cover banner image URL"
-        },
-        "posts": {
-            "type": "array",
-            "description": "List of recent timeline posts with engagement metrics"
-        },
-        "scrapedAt": {
-            "type": "string",
-            "description": "Timestamp of when the page was scraped"
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "title": "Entity Type"
+            },
+            "pageName": {
+                "type": "string",
+                "title": "Page Name"
+            },
+            "pageUrl": {
+                "type": "string",
+                "title": "Page URL"
+            },
+            "verified": {
+                "type": "boolean",
+                "title": "Verified Badge"
+            },
+            "category": {
+                "type": "string",
+                "title": "Category"
+            },
+            "followersCount": {
+                "type": "integer",
+                "title": "Followers Count"
+            },
+            "likesCount": {
+                "type": "integer",
+                "title": "Likes Count"
+            },
+            "bio": {
+                "type": "string",
+                "title": "Bio"
+            },
+            "email": {
+                "type": "string",
+                "title": "Email"
+            },
+            "phone": {
+                "type": "string",
+                "title": "Phone"
+            },
+            "website": {
+                "type": "string",
+                "title": "Website"
+            },
+            "address": {
+                "type": "string",
+                "title": "Address"
+            },
+            "avatarUrl": {
+                "type": "string",
+                "title": "Avatar URL"
+            },
+            "coverPhotoUrl": {
+                "type": "string",
+                "title": "Cover Photo URL"
+            },
+            "posts": {
+                "type": "array",
+                "title": "Posts"
+            },
+            "scrapedAt": {
+                "type": "string",
+                "title": "Scraped At"
+            }
         }
     }
 }
