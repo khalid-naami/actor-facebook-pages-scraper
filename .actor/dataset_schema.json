@@ -1,7 +1,9 @@
 {
     "actorSpecification": 1,
     "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "additionalProperties": true,
         "properties": {
             "type": {
                 "type": "string",
@@ -14,6 +16,18 @@
             "pageUrl": {
                 "type": "string",
                 "title": "Page URL"
+            },
+            "sourceUrl": {
+                "type": "string",
+                "title": "Source URL"
+            },
+            "url": {
+                "type": "string",
+                "title": "URL"
+            },
+            "title": {
+                "type": "string",
+                "title": "Title"
             },
             "verified": {
                 "type": "boolean",
@@ -34,6 +48,10 @@
             "bio": {
                 "type": "string",
                 "title": "Bio"
+            },
+            "introBio": {
+                "type": "string",
+                "title": "Intro Bio"
             },
             "email": {
                 "type": "string",
@@ -59,13 +77,241 @@
                 "type": "string",
                 "title": "Cover Photo URL"
             },
+            "recentPosts": {
+                "type": "array",
+                "title": "Recent Posts",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "groupName": {
+                "type": "string",
+                "title": "Group Name"
+            },
+            "groupUrl": {
+                "type": "string",
+                "title": "Group URL"
+            },
+            "privacy": {
+                "type": "string",
+                "title": "Privacy"
+            },
+            "membersCount": {
+                "type": "integer",
+                "title": "Members Count"
+            },
+            "postsCount": {
+                "type": "integer",
+                "title": "Posts Count"
+            },
+            "totalPosts": {
+                "type": "integer",
+                "title": "Total Posts"
+            },
             "posts": {
                 "type": "array",
-                "title": "Posts"
+                "title": "Posts",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "totalComments": {
+                "type": "integer",
+                "title": "Total Comments"
+            },
+            "comments": {
+                "type": "array",
+                "title": "Comments",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "totalVideos": {
+                "type": "integer",
+                "title": "Total Videos"
+            },
+            "videos": {
+                "type": "array",
+                "title": "Videos & Reels",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "libraryUrl": {
+                "type": "string",
+                "title": "Ads Library URL"
+            },
+            "targetCountry": {
+                "type": "string",
+                "title": "Target Country"
+            },
+            "totalAdsFound": {
+                "type": "integer",
+                "title": "Total Ads Found"
+            },
+            "ads": {
+                "type": "array",
+                "title": "Ads",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "status": {
+                "type": "string",
+                "title": "Status"
+            },
+            "note": {
+                "type": "string",
+                "title": "Note"
+            },
+            "locationFilter": {
+                "type": "string",
+                "title": "Location Filter"
+            },
+            "totalItems": {
+                "type": "integer",
+                "title": "Total Items"
+            },
+            "items": {
+                "type": "array",
+                "title": "Marketplace Items",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "totalEvents": {
+                "type": "integer",
+                "title": "Total Events"
+            },
+            "events": {
+                "type": "array",
+                "title": "Events",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "overallRating": {
+                "type": "string",
+                "title": "Overall Rating"
+            },
+            "recommendationRate": {
+                "type": "string",
+                "title": "Recommendation Rate"
+            },
+            "totalReviews": {
+                "type": "integer",
+                "title": "Total Reviews"
+            },
+            "reviews": {
+                "type": "array",
+                "title": "Reviews",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "totalPhotos": {
+                "type": "integer",
+                "title": "Total Photos"
+            },
+            "photos": {
+                "type": "array",
+                "title": "Photos",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "originalUrl": {
+                "type": "string",
+                "title": "Original URL"
+            },
+            "numericId": {
+                "type": "string",
+                "title": "Numeric ID"
+            },
+            "entityType": {
+                "type": "string",
+                "title": "Converted Entity Type"
+            },
+            "canonicalAppUri": {
+                "type": "string",
+                "title": "Canonical App URI"
             },
             "scrapedAt": {
                 "type": "string",
                 "title": "Scraped At"
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "type",
+                    "pageName",
+                    "followersCount",
+                    "likesCount",
+                    "email",
+                    "phone",
+                    "website",
+                    "totalItems",
+                    "pageUrl",
+                    "sourceUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "type": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "pageName": {
+                        "label": "Page Name",
+                        "format": "text"
+                    },
+                    "followersCount": {
+                        "label": "Followers",
+                        "format": "number"
+                    },
+                    "likesCount": {
+                        "label": "Likes",
+                        "format": "number"
+                    },
+                    "email": {
+                        "label": "Email",
+                        "format": "text"
+                    },
+                    "phone": {
+                        "label": "Phone",
+                        "format": "text"
+                    },
+                    "website": {
+                        "label": "Website",
+                        "format": "link"
+                    },
+                    "totalItems": {
+                        "label": "Items",
+                        "format": "number"
+                    },
+                    "pageUrl": {
+                        "label": "Page URL",
+                        "format": "link"
+                    },
+                    "sourceUrl": {
+                        "label": "Source URL",
+                        "format": "link"
+                    }
+                }
             }
         }
     }
