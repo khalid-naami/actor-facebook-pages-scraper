@@ -30,8 +30,12 @@
             "description": "List of Facebook URLs (Pages, Groups, Marketplace, Reels, Events, or Posts).",
             "editor": "requestListSources",
             "prefill": [
-                { "url": "https://www.facebook.com/Nike" },
-                { "url": "https://www.facebook.com/marketplace/paris/electronics" }
+                {
+                    "url": "https://www.facebook.com/Nike"
+                },
+                {
+                    "url": "https://www.facebook.com/marketplace/paris/electronics"
+                }
             ]
         },
         "maxItems": {
@@ -71,15 +75,20 @@
             "editor": "proxy",
             "default": {
                 "useApifyProxy": true,
-                "apifyProxyGroups": ["RESIDENTIAL"]
+                "apifyProxyGroups": [
+                    "RESIDENTIAL"
+                ]
             }
         },
         "customCookies": {
             "title": "Facebook Session Cookies (Optional)",
             "type": "string",
             "description": "Optional Facebook cookies (JSON array or 'c_user=...; xs=...' format) to scrape in logged-in state or access private groups.",
-            "editor": "textarea"
+            "editor": "textfield",
+            "isSecret": true
         }
     },
-    "required": ["startUrls"]
+    "required": [
+        "startUrls"
+    ]
 }
