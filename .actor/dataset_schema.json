@@ -249,7 +249,8 @@
                 "type": "string",
                 "title": "Scraped At"
             }
-        }
+        },
+        "required": []
     },
     "views": {
         "overview": {
