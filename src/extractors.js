@@ -250,6 +250,8 @@ export async function extractPageAndLeads(page, url) {
         const catMatch = bodyText.match(/Page\s*·\s*([^\n]+)/i);
         const category = catMatch ? catMatch[1].trim().slice(0, 120) : undefined;
         const introRaw = (bodyText.match(/Intro\n([^\n]+)/i)?.[1] || metaDesc || '').trim().slice(0, 400);
+        const addrMatch = bodyText.match(/(?:Address|Adresse|العنوان)\s*[:·\n]\s*([^\n]{5,120})/i);
+        const address = addrMatch ? addrMatch[1].trim() : undefined;
 
         return {
             type: 'PAGE',
@@ -257,6 +259,7 @@ export async function extractPageAndLeads(page, url) {
             pageUrl: canonicalUrl,
             verified: verifiedBadge,
             category,
+            address,
             followersRaw,
             likesRaw,
             email,
